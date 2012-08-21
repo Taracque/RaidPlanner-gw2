@@ -32,7 +32,7 @@ class RaidPlannerPluginGuildwars2 extends RaidPlannerPlugin
 
 	public function loadCSS()
 	{
-		JHTML::stylesheet('raidplanner_wow.css', 'images/raidplanner/css/' );
+		JHTML::stylesheet('raidplanner_gw2.css', 'images/raidplanner/css/' );
 		
 		return true;
 	}
