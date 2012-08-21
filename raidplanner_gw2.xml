@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="raidplanner_theme">
+	<name>RaidPlanner Guild Wars 2 Theme</name>
+	<creationDate>2012-08-21</creationDate>
+	<author>Taracque</author>
+	<authorEmail>taracque@taracque.hu</authorEmail>
+	<authorUrl>http://taracque.hu</authorUrl>
+	<copyright>Copyright Info</copyright>
+	<license>http://www.gnu.org/licenseses/gpl-2.0.html GNU/GPL</license>
+	<version>0.0.1</version>
+	<releaseDate>2012-08-21</releaseDate>
+	<releaseType>Development release</releaseType>
+	<description>RaidPlanner Guild Wars 2 Theme</description>
+	<install>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_class WHERE class_name='Guardian'">	INSERT IGNORE INTO `#__raidplanner_class` (`class_color`, `class_name`, `class_css`) VALUES ('#1592b2',	'Guardian', 'class_gw2_guardian')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_class WHERE class_name='Warrior'">	INSERT IGNORE INTO `#__raidplanner_class` (`class_color`, `class_name`, `class_css`) VALUES ('#d8b871',	'Warrior', 'class_gw2_warrior')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_class WHERE class_name='Engineer'">	INSERT IGNORE INTO `#__raidplanner_class` (`class_color`, `class_name`, `class_css`) VALUES ('#c87137',	'Engineer', 'class_gw2_engineer')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_class WHERE class_name='Ranger'">	INSERT IGNORE INTO `#__raidplanner_class` (`class_color`, `class_name`, `class_css`) VALUES ('#94c34a',	'Ranger', 'class_gw2_ranger')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_class WHERE class_name='Thief'">	INSERT IGNORE INTO `#__raidplanner_class` (`class_color`, `class_name`, `class_css`) VALUES ('#b09397',	'Thief', 'class_gw2_thief')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_class WHERE class_name='Elementalist'">INSERT IGNORE INTO `#__raidplanner_class` (`class_color`, `class_name`, `class_css`) VALUES ('#e75050',	'Elementalist', 'class_gw2_elementalist')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_class WHERE class_name='Mesmer'">	INSERT IGNORE INTO `#__raidplanner_class` (`class_color`, `class_name`, `class_css`) VALUES ('#d42bff',	'Mesmer', 'class_gw2_mesmer')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_class WHERE class_name='Necromancer'">		INSERT IGNORE INTO `#__raidplanner_class` (`class_color`, `class_name`, `class_css`) VALUES ('#64d390',	'Necromancer', 'class_gw2_necromancer')</sql>
+
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_race WHERE race_name='Asura'">		INSERT IGNORE INTO `#__raidplanner_race` (`race_name`) VALUES ('Asura')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_race WHERE race_name='Charr'">		INSERT IGNORE INTO `#__raidplanner_race` (`race_name`) VALUES ('Charr')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_race WHERE race_name='Human'">		INSERT IGNORE INTO `#__raidplanner_race` (`race_name`) VALUES ('Human')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_race WHERE race_name='Norn'">	INSERT IGNORE INTO `#__raidplanner_race` (`race_name`) VALUES ('Norn')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_race WHERE race_name='Sylvari'">		INSERT IGNORE INTO `#__raidplanner_race` (`race_name`) VALUES ('Sylvari')</sql>
+
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_role WHERE role_name='Damage'">		INSERT IGNORE INTO `#__raidplanner_role` (`role_name`, `body_color`, `header_color`, `font_color`, `icon_name`) VALUES ('Damage',			'white',	'#93232b',	'black',	'role_damage.png')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_role WHERE role_name='Control'">	INSERT IGNORE INTO `#__raidplanner_role` (`role_name`, `body_color`, `header_color`, `font_color`, `icon_name`) VALUES ('Control',	'white',	'#a06729',	'black',	'role_control.png')</sql>
+		<sql condition="SELECT COUNT(*)=0 FROM #__raidplanner_role WHERE role_name='Support'">	INSERT IGNORE INTO `#__raidplanner_role` (`role_name`, `body_color`, `header_color`, `font_color`, `icon_name`) VALUES ('Support',	'white',	'#2983a0',	'black',	'role_support.png')</sql>
+	</install>
+    <uninstall>
+    	<sql>DELETE FROM #__raidplanner_class WHERE class_name IN ('Warrior', 'Paladin', 'Hunter', 'Rogue', 'Priest', 'Death Knight', 'Shaman', 'Mage', 'Warlock', 'Druid', 'Monk')</sql>
+    	<sql>DELETE FROM #__raidplanner_race WHERE race_name IN ('Asura', 'Charr', 'Human', 'Norn', 'Sylvari')</sql>
+    	<sql>DELETE FROM #__raidplanner_role WHERE role_name IN ('Tank', 'Melee DPS', 'Ranged DPS', 'Healer')</sql>
+	</uninstall>
+	<fileset destination="raid_icons" folder="raid_icons">
+		<file>gw2.png</file>
+	</fileset>
+	<fileset destination="role_icons" folder="role_icons">
+		<file>role_damage.png</file>
+		<file>role_control.png</file>
+		<file>role_support.png</file>
+	</fileset>
+	<fileset destination="class_icons" folder="class_icons">
+		<file>gw2_elementalist.png</file>
+		<file>gw2_engineer.png</file>
+		<file>gw2_guardian.png</file>
+		<file>gw2_mesmer.png</file>
+		<file>gw2_necromancer.png</file>
+		<file>gw2_ranger.png</file>
+		<file>gw2_thief.png</file>
+		<file>gw2_warrior.png</file>
+	</fileset>
+	<fileset destination="css" folder="css">
+		<file>raidplanner_gw2.css</file>
+	</fileset>
+	<administrator>
+		<fileset destination="plugins" folder="plugins">
+			<folder>guildwars2</folder>
+		</fileset>
+	</administrator>
+</install>
